@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cctype>
 
-int roll(std::string rollVal) {
+int roll(const std::string &rollVal) {
     size_t dLoc {rollVal.find('d')};
     int diceNum;
     int diceSize;
@@ -9,7 +9,7 @@ int roll(std::string rollVal) {
         return -1;
     } else if (dLoc == 0) {
         diceNum = 1;
-    } else if (std::isdigit(rollVal[0])) {
+    } else if (std::isdigit(rollVal[0])) { // Might want to check if the remaining chars are also digits
         diceNum = std::stoi(rollVal);
     } else {
         return -1;
@@ -17,7 +17,7 @@ int roll(std::string rollVal) {
 
     if (dLoc + 1 == rollVal.size()) {
         diceSize = 6;
-    } else if (std::isdigit(rollVal[dLoc + 1])) {
+    } else if (std::isdigit(rollVal[dLoc + 1])) { // Same as previous, but will probably implement later when I am less lazy
         diceSize = std::stoi(rollVal.substr(dLoc + 1));
     } else {
         return -1;
