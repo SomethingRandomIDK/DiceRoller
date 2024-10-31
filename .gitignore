@@ -1,0 +1,11 @@
+# LSP
+compile_commands.json
+
+# Compiler Ignores
+*.o
+*.out
+*.exe
+
+# Executable Name
+roll
+
